@@ -8,14 +8,15 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         chrome.identity.getAuthToken({ interactive: true }, function (token) {
             console.log(token);
         });
-        sendResponse({ signed_in: true });
-    } else if (request.message === 'get_profile') {
-        var email;
-        chrome.identity.getProfileUserInfo({ accountStatus: 'ANY' }, function (user_info) {
+        sendResponse({signed_in: true});
+    }
+
+    else if(request.message === 'get_profile')
+    {
+        chrome.identity.getProfileUserInfo({accountStatus: 'ANY'}, function(user_info) {
             console.log(user_info);
-            email = user_info.email;
         });
-        console.log(email);
-        sendResponse({ email });
+
+        sendResponse(true);
     }
 });
