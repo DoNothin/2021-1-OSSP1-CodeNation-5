@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 
 const getHTML = async (keyword) => {
     try {
-        return await axios.get('https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=' + encodeURI(keyword));
+        return await axios.get('https://search.daum.net/search?w=tot&DA=YZR&t__nil_searchbox=btn&sug=&sugo=&sq=&o=&q=' + encodeURI(keyword));
     } catch (e) {
         console.log(e);
     }
@@ -13,13 +13,11 @@ const getHTML = async (keyword) => {
 const parsing = async (keyword) => {
     const html = await getHTML(keyword);
     const $ = cheerio.load(html.data); //jquery 사용
-    const $courseList = $$('#nx_autoframe_top > div > div.atcmp_fixer._atcmp_layer > div.atcmp_container._words > ul > li:nth-child(1) > a > span');
+    const $courseList = $('.keyword');
 
     let lists = [];
     $courseList.each((idx, node) => {
-        lists.push({
-            search: $(node).innerText(),
-        });
+        lists.push($(node).text());
     });
     console.log(lists);
 };
@@ -61,4 +59,5 @@ function getKeywords(A){
     document.getElementById('Show_keyword3_btn').innerHTML = Show_keyword3;
     document.getElementById('Show_keyword4_btn').innerHTML = Show_keyword4;
     }
+
 
