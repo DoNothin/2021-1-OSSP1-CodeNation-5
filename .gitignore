@@ -4,11 +4,7 @@
 
 # node_modules
 /node_modules
-
-
-# Lib
-/selenium/Lib
-/selenium/Scripts
+/client/node_modules
 
 # selenium
 /selenium/bin
