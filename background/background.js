@@ -1,22 +1,12 @@
 const API_KEY = 'AIzaSyA2lbpRU4mEOazqHuRyHNZfIv3fFBvrPR8';
 const DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'];
 
-let user_signed_in = false;
-
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    if (request.message === 'get_access_token') {
-        chrome.identity.getAuthToken({ interactive: true }, function (token) {
-            console.log(token);
+chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
+    if (request.message === 'auth_redirect') {
+        console.log(request.url);
+        chrome.windows.create({'url' : request.url, 'type': 'popup',
+            width: 800, height: 650}, function(window){
+                window.close();
         });
-        sendResponse({signed_in: true});
-    }
-
-    else if(request.message === 'get_profile')
-    {
-        chrome.identity.getProfileUserInfo({accountStatus: 'ANY'}, function(user_info) {
-            console.log(user_info);
-        });
-
-        sendResponse(true);
     }
 });

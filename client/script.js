@@ -1,3 +1,15 @@
+var url;
+var authed;
+
+fetch("http://localhost:5000/api")
+.then(function(res) {
+    return res.json();
+})
+.then(function(res) { 
+    url = res.url;
+    authed = res.authed;
+});
+
 //아이디 선택자
 const search = document.querySelector('#search'),
     searchButton = document.querySelector('#searchButton');
@@ -34,14 +46,10 @@ const collapse = (selector, cmd) => {
 };
 
 document.querySelector('#sign_in').addEventListener('click', function () {
-    chrome.runtime.sendMessage({ message: 'get_access_token' }, function (response) {
-        if (response.signed_in) {
-            document.querySelector('#not_auth').style.display = 'none';
-            document.querySelector('#auth').style.display = 'block';
-        }
-    });
-
-    chrome.runtime.sendMessage({ message: 'get_profile' }, function (response) {
-        document.querySelector('#user_email').innerHTML = response.email;
-    });
+    if(authed == false)
+    {
+        chrome.extension.sendMessage({message: "auth_redirect", url: url}, function(response) {
+        
+        });
+    }
 });
