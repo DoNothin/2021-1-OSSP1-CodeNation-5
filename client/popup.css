@@ -8,6 +8,16 @@ body{
     height: 100px;
 }
 
+.bot{
+    
+    text-align: center;
+    margin: 4px 2px;
+}
+
+.suggest{
+    border-radius: 50%;
+}
+
 #popup{
     padding: 30px;
 }
