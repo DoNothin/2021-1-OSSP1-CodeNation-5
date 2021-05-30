@@ -6,9 +6,10 @@ const {google} = require('googleapis');
 const express = require('express'); //express 프레임워크 사용합니다.
 const app = express();
 
-const port = process.env.port || 5000; //서버의 포트번호를 지정해줍니다. 5000번에서 확인할 수 있습니다.
+const port = process.env.port || 8000; //서버의 포트번호를 지정해줍니다. 5000번에서 확인할 수 있습니다.
 
 const OAuth2Data = require("./credentials.json");
+var TokenData;
 
 const CLIENT_ID = OAuth2Data.web.client_id;
 const CLIENT_SECRET = OAuth2Data.web.client_secret;
@@ -50,7 +51,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
     });
 }*/
 
-app.get('/api', (req, res) => {
+/*app.get('/api', (req, res) => {
     if(authed == false)
     {
         var url = oAuth2Client.generateAuthUrl({
@@ -66,7 +67,8 @@ app.get('/api', (req, res) => {
 
     else
     {
-        var oauth2 = google.oauth2({
+        res.send({message: "완료"});
+        /*var oauth2 = google.oauth2({
             auth: oAuth2Client,
             version: "v2"
         });
@@ -81,7 +83,7 @@ app.get('/api', (req, res) => {
                     pic: response.data.picture
                 });
             }
-        })
+        });
     }
 });
 
@@ -95,7 +97,8 @@ app.get('/google/callback', function(req, res) {
             else
             {
                 console.log("Authenticating Success");
-                oAuth2Client.setCredentials({access_token: tokens.access_token});
+                oAuth2Client.setCredentials(tokens);
+                console.log(oAuth2Client.credentials);
                 authed = true;
                 fs.writeFile('tokens.json', JSON.stringify(tokens), "utf8", function(err) {
                     console.log(err);
@@ -105,7 +108,7 @@ app.get('/google/callback', function(req, res) {
             }
         })
     }
-})
+})*/
 
 app.listen(port, () => {
     console.log(`listening on port${port}`);

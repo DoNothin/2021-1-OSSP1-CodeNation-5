@@ -1,14 +1,5 @@
 var url;
-var authed;
-
-fetch("http://localhost:5000/api")
-.then(function(res) {
-    return res.json();
-})
-.then(function(res) { 
-    url = res.url;
-    authed = res.authed;
-});
+var authed = false;
 
 //아이디 선택자
 const search = document.querySelector('#search'),
@@ -44,12 +35,3 @@ const collapse = (selector, cmd) => {
         target.classList[fnmap[cmd]]('show');
     });
 };
-
-document.querySelector('#sign_in').addEventListener('click', function () {
-    if(authed == false)
-    {
-        chrome.extension.sendMessage({message: "auth_redirect", url: url}, function(response) {
-        
-        });
-    }
-});
