@@ -1,6 +1,3 @@
-var url;
-var authed = false;
-
 //아이디 선택자
 const search = document.querySelector('#search'),
     searchButton = document.querySelector('#searchButton');
