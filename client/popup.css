@@ -1,11 +1,15 @@
 body{
     width: 400px;
-    height: 600px;
 }
 
-.image{
-    width: 100px;
-    height: 100px;
+.bot{
+    
+    text-align: center;
+    margin: 4px 2px;
+}
+
+.suggest{
+    border-radius: 50%;
 }
 
 #popup{
@@ -23,11 +27,11 @@ body{
 }
 
 #btn_showFiles{
+
     height: 30px;
     width: 350px;
     font-size: 12px;
 }
-
 
 #footer{
     background-color: #EEEEEE;
@@ -38,3 +42,4 @@ a{
     text-decoration: none;
     font-size: 12px;
 }
+
