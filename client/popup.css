@@ -2,6 +2,16 @@ body{
     width: 400px;
 }
 
+.bot{
+    
+    text-align: center;
+    margin: 4px 2px;
+}
+
+.suggest{
+    border-radius: 50%;
+}
+
 #popup{
     padding: 30px;
 }
@@ -27,3 +37,9 @@ body{
     background-color: #EEEEEE;
     height: 30px;
 }
+
+a{
+    text-decoration: none;
+    font-size: 12px;
+}
+
