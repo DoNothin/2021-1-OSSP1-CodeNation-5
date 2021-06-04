@@ -15,20 +15,33 @@
     
   </head>
   <body>
-    <h1>자료조사 봇</h1>
-    <input type="text" id="inputbox"/>
-    <button id="bot">봇</button>&nbsp;<button id="search">검색</button>
-    <div id="result"></div>
-    <button id="btn_showFiles" class="btn btn-second" type="button" data-toggle="collapse" data-target=".collapse" data-text="Collapse">저장한 자료 열람 ▼</button>
-    <div class="block collapse">
-      <div>자료채워넣기~</div>
+    <div id="popup">
+      <h3 class="d-flex justify-content-center mb-2">필터링 검색</h3>
+        <form id="search" name="search" action="./search.html">
+          <div id="searchbar" class="input-group" >
+            <label for="search">주제어 :</label>&nbsp;
+            <input type="text" id="keyword" class="form-control"/>
+            &emsp;
+            <a href="search.html">
+              <button type="submit" id="btn_search" class="btn1">검색</button>
+            </a>
+          </div>
+          <br>
+        </form>
+        <button
+          class="btn btn-second"
+          id="btn_target"
+          type="button"
+          data-toggle="collapse"
+          data-target=".collapse"
+          data-text="Collapse">
+            저장한 자료 열람 ▼
+        </button>
+        <div class="block collapse">
+          <div></div>
+        </div>
     </div>
-    <div id="footer" class="d-flex justify-content-center">
-      로그인 되었습니다 email : <span id="user_email"></span>
-    </div>
-    <div id = not_auth style="display:block;">
-    로그인을 해주세요<button id="sign_in">로그인</button>
-    </div>
+   
     <script src="script.js"></script>
   </body>
 </html>
