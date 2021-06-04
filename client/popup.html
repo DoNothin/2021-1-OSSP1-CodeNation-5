@@ -15,6 +15,33 @@
     
   </head>
   <body>
+    <div id="popup">
+      <h3 class="d-flex justify-content-center mb-2">필터링 검색</h3>
+        <form id="search" name="search" action="./search.html">
+          <div id="searchbar" class="input-group" >
+            <label for="search">주제어 :</label>&nbsp;
+            <input type="text" id="keyword" class="form-control"/>
+            &emsp;
+            <a href="#"><button type="submit" id="btn_bot" class="btn1">봇</button></a>
+            <a href="#"><button type="submit" id="btn_search" class="btn2">검색</button></a>
+          </div>
+          <div>
+            <input type="button" onclick="addDiv()" value="Div 태그 추가">
+            <script src="makebtn.js"></script>
+          </div>
+          <!-- 아래는 파이썬에서 찾은 변수 4개를 보여줄 예정-->
+       </form>
+          <br/>      
+          <div>
+            <button type="button" class="btn btn-primary" id="Show_keyword1_btn"></button> <!-- 파일의 변수를 버튼으로! messagebox.js참고-->
+            <button type="button" class="btn btn-secondary" id="Show_keyword2_btn"></button>
+            <button type="button" class="btn btn-success" id="Show_keyword3_btn"></button>
+            <button type="button" class="btn btn-danger" id="Show_keyword4_btn"></button>
+            
+          </div>
+        
+          <br>
+          
     <h1>자료조사 봇</h1>
     <input type="text" id="inputbox"/>
     <button id="bot">봇</button>&nbsp;<button id="search">검색</button>

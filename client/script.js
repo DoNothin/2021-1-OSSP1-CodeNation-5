@@ -34,6 +34,7 @@ const collapse = (selector, cmd) => {
     });
 };
 
+
 document.querySelector('#sign_in').addEventListener('click', function () {
     chrome.runtime.sendMessage({ message: 'get_access_token' }, function (response) {
         if (response.signed_in) {
@@ -46,7 +47,7 @@ document.querySelector('#sign_in').addEventListener('click', function () {
         document.querySelector('#user_email').innerHTML = response.email;
     });
 });
-=======
+
 //아이디 선택자
 const search = document.querySelector("#search"),
     searchButton = document.querySelector("#searchButton");
@@ -77,3 +78,4 @@ const collapse = (selector, cmd) => {
     target.classList[fnmap[cmd]]('show');
   });
 }
+
