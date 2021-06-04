@@ -15,18 +15,67 @@
     
   </head>
   <body>
+    <div id="popup">
+      <h3 class="d-flex justify-content-center mb-2">필터링 검색</h3>
+        <form id="search" name="search" action="./search.html">
+          <div id="searchbar" class="input-group" >
+            <label for="search">주제어 :</label>&nbsp;
+            <input type="text" id="keyword" class="form-control"/>
+            &emsp;
+            <a href="#"><button type="submit" id="btn_bot" class="btn1">봇</button></a>
+            <a href="#"><button type="submit" id="btn_search" class="btn2">검색</button></a>
+          </div>
+          <div>
+            <input type="button" onclick="addDiv()" value="Div 태그 추가">
+            <script src="makebtn.js"></script>
+          </div>
+          <!-- 아래는 파이썬에서 찾은 변수 4개를 보여줄 예정-->
+       </form>
+          <br/>      
+          <div>
+            <button type="button" class="btn btn-primary" id="Show_keyword1_btn"></button> <!-- 파일의 변수를 버튼으로! messagebox.js참고-->
+            <button type="button" class="btn btn-secondary" id="Show_keyword2_btn"></button>
+            <button type="button" class="btn btn-success" id="Show_keyword3_btn"></button>
+            <button type="button" class="btn btn-danger" id="Show_keyword4_btn"></button>
+            
+          </div>
+        
+          <br>
+          
     <h1>자료조사 봇</h1>
     <input type="text" id="inputbox"/>
     <button id="bot">봇</button>&nbsp;<button id="search">검색</button>
+       <br><br>
+    <p>
+      <button class = "bot suggest">봇</button>&nbsp;
+      <button id = "file_image_png">png</button>&nbsp;
+      <button id = "file_image_jpeg">jpeg</button>&nbsp;
+      <button id = "file_document_pdf">pdf</button>&nbsp;
+      <button id = "file_documet_docx">docx</button>&nbsp;
+      <button id = "file_document_ppt">ppt</button>&nbsp;
+      <button id = "file_video">video</button>
+    </p>
+    <script src = "suggestData.js"></script><!--주제어 입력 후 진행될 자료추천-->
+  
     <div id="result"></div>
+    
     <hr>
     <h3>필터링</h3>
-    <label class="btn btn-primary btn-file">
-        파일선택 <input type="file" style="display: none;">
-    </label>
+    <div><input type="file" id="loadfile"/></div>
     <br>
-    <button id="bot">봇</button>&nbsp;<button id="search">검색</button>
-    <div id="result2"></div>
+    <p>
+      <button class = "bot suggest">봇</button>&nbsp;
+      <button id = "file_image_png">png</button>&nbsp;
+      <button id = "file_image_jpeg">jpeg</button>&nbsp;
+      <button id = "file_document_pdf">pdf</button>&nbsp;
+      <button id = "file_documet_docx">docx</button>&nbsp;
+      <button id = "file_document_ppt">ppt</button>&nbsp;
+      <button id = "file_video">video</button>
+    </p>
+    <script src = "suggestData.js"></script><!--자료 업로드 후 진행될 자료추천-->
+    
+    <hr>
+    <div id="result"></div>
     <button id="btn_showFiles" class="btn btn-second" type="button" data-toggle="collapse" data-target=".collapse" data-text="Collapse">저장한 자료 열람 ▼</button>
     <div class="block collapse">
       <div>자료채워넣기~</div>
